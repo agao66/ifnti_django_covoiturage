@@ -22,7 +22,7 @@ def test_covoiturage_d_un_trajet(db):
     assert trajet.prix_place
 
 
-def test_exeption_si_trajet_sans_place(db):
+def test_si_trajet_sans_place_renvoyer_une_exeption(db):
 
     with pytest.raises(Exception):
         trajet = Trajet.objects.create(
@@ -34,4 +34,39 @@ def test_exeption_si_trajet_sans_place(db):
             places=0,
             prix_place=3000,
         )
- 
+
+
+def test_trajet_affiche_depart_arriver_date(db):
+
+    trajet = Trajet.objects.create(
+        conducteur="affo",
+        ville_depart="sokode",
+        ville_arrivee="lome",
+        date_depart="2026-10-18",
+        heure_depart="18:00",
+        places=0,
+        prix_place=3000,
+    )
+
+    assert str(trajet) == "sokode - lome le 2026-10-18 "
+    
+    
+
+# def test_trajet_affiche_depart_arriver_date(db):
+
+#     trajet = Trajet.objects.create(
+#             conducteur="affo",
+#             ville_depart="sokode",
+#             ville_arrivee="lome",
+#             date_depart="2026-10-18",
+#             heure_depart="18:00",
+#             places=0,
+#             prix_place=3000,
+#         )
+#     trajet = Reservation.objects.create(
+#         nom="affo",
+#         nbr_place=2,
+#         trajet=trajet
+#     )
+
+#     assert str(trajet) == "sokode - lome le 2026-10-18 "
