@@ -34,3 +34,4 @@ def test_exeption_si_trajet_sans_place(db):
             places=0,
             prix_place=3000,
         )
+ 
