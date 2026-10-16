@@ -20,3 +20,5 @@ def test_covoiturage_d_un_trajet(db):
     assert trajet.places
     assert trajet.prix_place
    
+   
+   
